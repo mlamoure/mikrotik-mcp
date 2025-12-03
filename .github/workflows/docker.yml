@@ -10,7 +10,7 @@ jobs:
   version:
     runs-on: ubuntu-latest
     outputs:
-      version: ${{ steps.gitversion.outputs.semVer }}
+      version: ${{ steps.gitversion.outputs.majorMinorPatch }}
       major_minor: ${{ steps.gitversion.outputs.major }}.${{ steps.gitversion.outputs.minor }}
     steps:
       - name: Checkout
@@ -31,7 +31,7 @@ jobs:
 
       - name: Display Version
         run: |
-          echo "SemVer: ${{ steps.gitversion.outputs.semVer }}"
+          echo "Version: ${{ steps.gitversion.outputs.majorMinorPatch }}"
           echo "Major.Minor: ${{ steps.gitversion.outputs.major }}.${{ steps.gitversion.outputs.minor }}"
 
   docker:
